@@ -52,10 +52,10 @@ jobs:
           version: latest
           endpoint: builders
 
-      - name: build and push amd64
+      - name: build and push
         run: |
           docker buildx build . \
-          --platform linux/amd64 \
+          --platform linux/amd64,linux/arm64 \
           --tag nitra/adminer:latest \
           --tag "nitra/adminer:${GITHUB_SHA::8}" \
           --push
