@@ -1,8 +1,4 @@
-FROM ghcr.io/shyim/adminerevo:4.8.4
+FROM adminer:latest
 
-# Redis, MS SQL
-USER root
-RUN apk add --no-cache \
-    php-8.3-redis \
-    php-8.3-pdo_dblib
-USER nonroot
+COPY ./adminer/index.php /var/www/html/index.php
+
